@@ -11,8 +11,8 @@ services:
       - ./vmagentdata:/vmagentdata
       - ./vmagent.yaml:/etc/vmagent/vmagent.yaml
     command:
-      # This Writes to your Levitate Cluster. https://docs.last9.io/docs/levitate-onboard
-      - "--remoteWrite.url=https://${levitate_username}:${levitate_password}@${levitate_cluster_url}"
+      # This Writes to your Last9 Cluster. https://last9.io/docs/onboard/
+      - "--remoteWrite.url=https://${last9_username}:${last9_password}@${last9_cluster_url}"
     restart: always
     logging:
       driver: json-file

@@ -1,6 +1,6 @@
-# Node Exporter To Levitate
+# Node Exporter To Last9
 
-![node-exporter-to-levitate](diagram.png)
+![node-exporter-to-last9](diagram.png)
 
 ## Prerequisites
 
@@ -23,16 +23,16 @@
 
 Clone this repository to your local machine using the following command:
 ```bash
-git clone https://github.com/last9/node-exporter-to-levitate.git
+git clone https://github.com/last9/node-exporter-to-last9.git
 ```
 
 ### 2. Set Environment Variables
 
 Before running the `run_containers.sh` script, ensure you set the necessary environment variables:
 ```bash
-export LEVITATE_USERNAME='levitate_cluster_username'
-export LEVITATE_PASSWORD='levitate_cluster_password'
-export LEVITATE_CLUSTER_URL='levitate_cluster_write_url'
+export LAST9_USERNAME='last9_cluster_username'
+export LAST9_PASSWORD='last9_cluster_password'
+export LAST9_CLUSTER_URL='last9_cluster_write_url'
 ```
 
 ### 3. Make Scripts Executable

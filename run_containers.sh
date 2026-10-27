@@ -3,9 +3,9 @@
 set -e
 
 # Define variables
-levitate_username=${LEVITATE_USERNAME:-}
-levitate_password=${LEVITATE_PASSWORD:-}
-levitate_cluster_url=${LEVITATE_CLUSTER_URL:-}
+last9_username=${LAST9_USERNAME:-}
+last9_password=${LAST9_PASSWORD:-}
+last9_cluster_url=${LAST9_CLUSTER_URL:-}
 
 # Verify Node Exporter is installed and running
 echo "Verifying Node Exporter installation..."
@@ -16,19 +16,19 @@ fi
 echo "Node Exporter is verified."
 
 # Check if necessary variables are set
-if [ -z "$levitate_username" ] || [ -z "$levitate_password" ] || [ -z "$levitate_cluster_url" ]; then
-    echo "Error: Necessary variables (LEVITATE_USERNAME or LEVITATE_PASSWORD or LEVITATE_CLUSTER_URL) are not set."
+if [ -z "$last9_username" ] || [ -z "$last9_password" ] || [ -z "$last9_cluster_url" ]; then
+    echo "Error: Necessary variables (LAST9_USERNAME or LAST9_PASSWORD or LAST9_CLUSTER_URL) are not set."
     exit 1
 fi
 
 # Replace variables in docker-compose file
 echo "Setting up Docker Compose configuration..."
-sed -i "s/\${levitate_username}/$levitate_username/g" docker-compose.yaml
-sed -i "s/\${levitate_password}/$levitate_password/g" docker-compose.yaml
-sed -i "s/\${levitate_cluster_url}/$levitate_cluster_url/g" docker-compose.yaml
+sed -i "s/\${last9_username}/$last9_username/g" docker-compose.yaml
+sed -i "s/\${last9_password}/$last9_password/g" docker-compose.yaml
+sed -i "s/\${last9_cluster_url}/$last9_cluster_url/g" docker-compose.yaml
 
 # Verify replacements
-if grep -q '${levitate_username}' docker-compose.yaml || grep -q '${levitate_password}' docker-compose.yaml || grep -q '${levitate_cluster_url}' docker-compose.yaml; then
+if grep -q '${last9_username}' docker-compose.yaml || grep -q '${last9_password}' docker-compose.yaml || grep -q '${last9_cluster_url}' docker-compose.yaml; then
     echo "Error: Failed to replace one or more variables in docker-compose.yaml."
     echo "Info: Manually replace the variables with actual values in docker-compose.yaml."
     exit 1
